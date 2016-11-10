@@ -15,18 +15,41 @@
 /******************************
 * Global Definitions of Structs
 ******************************/
-typedef struct
+
+#define MAXAPPOINTMENTS 100
+
+
+typedef enum
 {
-  int Day,
-      Month,
-      Year;
-}TDate;
+    NotADay, Mo, Tu, We, Th, Fr, Sa, Su
+} TDayOfTheWeek;
+
 
 typedef struct
 {
-  int Hour,
-      Minute,
-      Second;
-}TTime;
+    int Day,
+        Month,
+        Year;
+    TDayOfTheWeek WeekDay;
+} TDate;
+
+typedef struct
+{
+    int Hour,
+        Minute,
+        Second;
+} TTime;
+
+typedef struct
+{
+    TDate Date;
+    TTime Time;
+    TTime* Duration;
+    char* Description;
+    char* Place;
+} TAppointment;
+
+extern int countAppointments;
+extern TAppointment Calendar;
 
 #endif /* DATASTRUCTURE_H_ */

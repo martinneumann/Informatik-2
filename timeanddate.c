@@ -88,16 +88,19 @@ int isDateValid(TDate * date)
 
     switch(date->Month)
     {
-        case  4:
-        case  6:
-        case  9:
-        case 11:    valid = checkthirty(date);
-                    break;
+    case  4:
+    case  6:
+    case  9:
+    case 11:
+        valid = checkthirty(date);
+        break;
 
-        case  2:    valid = checkfebr(date);
-                    break;
+    case  2:
+        valid = checkfebr(date);
+        break;
 
-        default:    valid = ckeckthirtyone(date);
+    default:
+        valid = ckeckthirtyone(date);
 
     }
     return valid;
@@ -143,7 +146,7 @@ int getDateFromString(char *Input, TDate *date)
     char * year  = NULL;
 
     int valid    = 0,
-            i    = 0;
+        i    = 0;
 
     // search for first delim
     while((*(Input+i) != '.') && (*(Input+i) != '\0'))
